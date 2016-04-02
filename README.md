@@ -1,2 +1,7 @@
-# djmag-top-100-clubs
-Visualizing the Top 100 Clubs of 2016
+# DJMag - Top 100 clubs of the world
+Scraping and Mapping [DJMag's 2016 Top 100 clubs list](http://djmag.com/top100clubs?year=2016)
+
+
+![screenshot](screenshots/version%200.3%20-%20SplitApp%20with%20Mapbox.png)
+
+[Screenshots of previous versions!](screenshots/)
