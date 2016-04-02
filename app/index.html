@@ -6,15 +6,15 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <style>
-    html,
-    body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    #map {
-        height: 100%;
-    }
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 100%;
+        }
     </style>
 </head>
 
@@ -43,10 +43,10 @@
 
             var club = json[i],
                 latLng = new google.maps.LatLng(club.lat, club.lng),
-                infoContent =   "<p>"+ "Name:" + club.name + "\n" + "</p>" +
-                                "<p>"+ "Address:" +club.address + "\n" + "</p>" +
-                                "<p>"+ "capacity:" +club.capacity + "\n" + "</p>" +
-                                "<p>"+ "Website:" +club.website + "</p>" ;                             
+                infoContent =   "<p>"+ "" + "<b>"+ club.name +"</b>"+ "\n" + "</p>" +
+                                "<p>"+ " " +club.address + "\n" + "</p>" +
+                                "<p>"+ "Capacity: " +club.capacity + "\n" + "</p>" +
+                                "<p>"+ "Website: " + "<a href="+club.website+">"+ club.website +"</a></p>" ;                             
 
 
             var infowindow = new google.maps.InfoWindow({
@@ -56,17 +56,26 @@
             // Creating a marker and putting it on the map
             var marker= new google.maps.Marker({
                 position: latLng,
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    fillColor: 'red',
+                    fillOpacity: 0.8,
+                    scale: 6,
+                    strokeColor: 'gold',
+                    strokeWeight: 3
+                },
                 map: map,
                 title: club.title,
                 infowindow: infowindow
             });
 
-            marker.addListener('click', function() {
+            marker.addListener('click', function() {                
                 this.infowindow.open(map, this);
-            });
+            });            
 
         }
     }
+
     </script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 </body>
